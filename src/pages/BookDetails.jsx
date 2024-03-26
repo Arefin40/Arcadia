@@ -29,6 +29,23 @@ export default () => {
       } else toast.error("You have already read this book");
    };
 
+   /**
+    * Adds a book to the wish list.
+    * @param {string} id book id.
+    */
+   const addToWishlist = (id) => {
+      let readlist = getLocalStorageData("readlist");
+      let wishlist = getLocalStorageData("wishlist");
+
+      if (!(readlist.includes(id) || wishlist.includes(id))) {
+         wishlist.push(id);
+         setLocalStorageData("wishlist", wishlist);
+         toast.success("Book added to the wishlist");
+      } else if (readlist.includes(id))
+         toast.error("You have already read this book");
+      else toast.error("Already added to the wishlist");
+   };
+
    return (
       <section className="mt-12 grid lg:grid-cols-2 gap-x-12 gap-y-6 content-start">
          <div className="rounded-2xl lg:px-32 lg:py-20 bg-gray-100">
@@ -99,7 +116,9 @@ export default () => {
                >
                   Read
                </Button>
-               <Button>Wishlist</Button>
+               <Button onClick={() => addToWishlist(book.bookId)}>
+                  Wishlist
+               </Button>
             </div>
          </div>
       </section>
