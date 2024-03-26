@@ -7,7 +7,7 @@ export default () => {
       <>
          <Header />
 
-         <main className="px-5 lg:px-0 mx-auto container grid gap-y-16 lg:gap-y-24 text-center min-h-80 items-center justify-center">
+         <main className="px-5 lg:px-0 mx-auto container grid gap-y-16 lg:gap-y-24">
             <Outlet />
          </main>
 
