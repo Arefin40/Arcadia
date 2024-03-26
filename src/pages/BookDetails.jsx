@@ -1,10 +1,33 @@
 import { useParams, useLoaderData } from "react-router-dom";
+import { getLocalStorageData, setLocalStorageData } from "@utils";
+import toast from "react-hot-toast";
 import Button from "@components/Button";
 
 export default () => {
    const books = useLoaderData();
    const { id } = useParams();
    const book = books.find(({ bookId }) => bookId === id);
+
+   /**
+    * Adds a book to the read list.
+    * @param {string} id book id.
+    */
+   const addToRead = (id) => {
+      let readlist = getLocalStorageData("readlist");
+      let wishlist = getLocalStorageData("wishlist");
+
+      if (!readlist.includes(id)) {
+         readlist.push(id);
+         setLocalStorageData("readlist", readlist);
+
+         if (wishlist.includes(id)) {
+            wishlist = wishlist.filter((bookId) => bookId !== id);
+            setLocalStorageData("wishlist", wishlist);
+         }
+
+         toast.success("Book added to the read list");
+      } else toast.error("You have already read this book");
+   };
 
    return (
       <section className="mt-12 grid lg:grid-cols-2 gap-x-12 gap-y-6 content-start">
@@ -70,7 +93,10 @@ export default () => {
             </div>
 
             <div className="mt-2 flex gap-x-4">
-               <Button className="border-2 text-gray-800 hover:bg-gray-100">
+               <Button
+                  onClick={() => addToRead(book.bookId)}
+                  className="border-2 text-gray-800 hover:bg-gray-100"
+               >
                   Read
                </Button>
                <Button>Wishlist</Button>
