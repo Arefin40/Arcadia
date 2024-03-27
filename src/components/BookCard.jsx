@@ -7,8 +7,8 @@ export default ({ book }) => {
             <img src={book.image} className="max-h-full max-w-full shadow-xl" />
          </div>
 
-         <div>
-            <div className="flex items-center gap-x-3 text-sm">
+         <div className="grid gap-y-2 lg:gap-y-4">
+            <div className="flex items-center gap-x-3 gap-y-1 text-sm flex-wrap">
                {book.tags.map((tag, index) => (
                   <div
                      key={index}
@@ -18,12 +18,10 @@ export default ({ book }) => {
                   </div>
                ))}
             </div>
-            <h1 className="mt-4 font-bold text-2xl text-gray-800">
+            <h1 className="font-bold text-lg lg:text-2xl text-gray-800">
                {book.bookName}
             </h1>
-            <p className="mt-4 pb-5 mb-5 border-b border-dashed">
-               By : {book.author}
-            </p>
+            <p className="pb-5 border-b border-dashed">By : {book.author}</p>
             <div className="flex items-center justify-between">
                <p>{book.category}</p>
                <div className="flex items-center gap-x-2">
