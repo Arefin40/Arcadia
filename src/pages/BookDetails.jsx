@@ -47,23 +47,23 @@ export default () => {
    };
 
    return (
-      <section className="mt-12 grid lg:grid-cols-2 gap-x-12 gap-y-6 content-start">
-         <div className="rounded-2xl lg:px-32 lg:py-20 bg-gray-100">
+      <section className="mt-20 lg:mt-12 grid lg:grid-cols-2 gap-x-12 gap-y-6 content-start">
+         <div className="rounded-2xl px-8 py-4 lg:px-32 lg:py-20 bg-gray-100 flex items-center justify-center">
             <img
                src={book.image}
                alt="book-image"
-               className="max-w-full max-h-full"
+               className="max-w-full max-h-64 lg:max-h-full shadow-md lg:shadow-2xl shadow-gray-600"
             />
          </div>
 
-         <div className="grid gap-y-6 content-start">
+         <div className="grid gap-y-5 lg:gap-y-6 content-start">
             <div>
-               <h1 className="font-bold text-4xl text-gray-800">
+               <h1 className="font-bold text-2xl lg:text-4xl text-gray-800">
                   {book.bookName}
                </h1>
                <h4 className="mt-4 text-lg font-medium">
-                  By :{" "}
-                  <span className="text-gray-800 font-semibold">
+                  By :
+                  <span className="ml-2 text-gray-800 font-semibold">
                      {book.author}
                   </span>
                </h4>
@@ -75,17 +75,19 @@ export default () => {
                {book.review}
             </p>
 
-            <div className="flex items-center gap-x-3">
+            <div className="flex items-center gap-x-3 text-sm sm:text-base flex-wrap gap-y-1">
                <h1 className="font-bold text-gray-800">Tag: </h1>
 
-               {book.tags.map((tag, index) => (
-                  <div
-                     key={index}
-                     className="px-3 py-1.5 rounded-full bg-green-50 text-green-600"
-                  >
-                     {tag}
-                  </div>
-               ))}
+               <div className="flex items-center flex-wrap gap-x-3 gap-y-1">
+                  {book.tags.map((tag, index) => (
+                     <div
+                        key={index}
+                        className="px-3 py-1.5 rounded-full bg-green-50 text-green-600 flex-nowrap"
+                     >
+                        {tag}
+                     </div>
+                  ))}
+               </div>
             </div>
 
             <div className="pt-6 space-y-3 border-t">
