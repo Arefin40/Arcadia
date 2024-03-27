@@ -22,8 +22,8 @@ export default () => {
          to: "/pages-to-read",
       },
       {
-         name: "Community",
-         to: "/community",
+         name: "Blogs",
+         to: "/blogs",
       },
       {
          name: "Contact",
