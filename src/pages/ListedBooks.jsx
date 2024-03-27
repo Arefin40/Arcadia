@@ -33,27 +33,28 @@ export default () => {
    booklist = booklist.sort(comparator(sortBy));
 
    return (
-      <section className="mt-12">
+      <section className="mt-20 lg:mt-12">
          <header>
-            <div className="px-8 py-14 bg-green-50 text-4xl lg:text-5xl font-bold text-green-600 text-center uppercase rounded-lg">
+            <div className="px-8 py-14 bg-green-50 text-3xl lg:text-5xl font-bold text-green-600 text-center uppercase rounded-lg">
                Listed Books
             </div>
 
-            <div className="mt-12 flex">
+            <div className="mt-8 lg:mt-12 grid lg:flex gap-y-4 justify-items-center">
                <Tabs
                   activeTab={activeTab}
                   setActiveTab={setActiveTab}
                   tabs={["Read Books", "Wishlist Books"]}
+                  className="justify-center lg:justify-start order-2 sm:order-1"
                />
 
-               <div className="w-full flex border-b-2 items-center justify-end">
-                  <div className="relative group">
+               <div className="w-full flex lg:border-b-2 items-center justify-center lg:justify-end order-1 sm:order-2">
+                  <div className="inline-block relative group">
                      <button className="px-3 py-2 rounded-md border flex items-center gap-x-2 group-hover:bg-green-50 group-hover:border-green-300">
                         <span>Sory by</span>
                         <Arrow />
                      </button>
 
-                     <ul className="hidden group-hover:block absolute py-1 bg-white border whitespace-nowrap rounded">
+                     <ul className="hidden group-hover:block absolute lg:right-0 left-1/2 lg:left-auto py-1 bg-white border whitespace-nowrap rounded z-10 -translate-x-1/2 lg:translate-x-0">
                         {sortlist.map(({ name, key }) => (
                            <li
                               key={key}
@@ -69,7 +70,7 @@ export default () => {
             </div>
          </header>
 
-         <main className="py-12">
+         <main className="py-12 grid gap-y-4 lg:gap-y-6">
             {booklist.map((book) => (
                <BookListItem key={book.bookId} book={book} />
             ))}
