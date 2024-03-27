@@ -9,7 +9,7 @@ export default () => {
          <Toaster />
          <Header />
 
-         <main className="px-5 lg:px-0 mx-auto container grid gap-y-16 lg:gap-y-24">
+         <main className="mt-20 lg:mt-0 px-5 lg:px-0 mx-auto container grid gap-y-16 lg:gap-y-24">
             <Outlet />
          </main>
 

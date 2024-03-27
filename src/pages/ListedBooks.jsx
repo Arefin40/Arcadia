@@ -33,7 +33,7 @@ export default () => {
    booklist = booklist.sort(comparator(sortBy));
 
    return (
-      <section className="mt-20 lg:mt-12">
+      <section className="lg:mt-12">
          <header>
             <div className="px-8 py-14 bg-green-50 text-3xl lg:text-5xl font-bold text-green-600 text-center uppercase rounded-lg">
                Listed Books

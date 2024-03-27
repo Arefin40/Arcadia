@@ -55,7 +55,11 @@ export default () => {
                      <ul className="w-full pt-12 lg:pt-0 grid justify-items-center text-xl lg:text-base lg:flex items-center gap-x-12 gap-y-6 font-semibold text-gray-600 flex-shrink-0">
                         {routes.map(({ name, to }) => (
                            <li key={to}>
-                              <NavLink to={to} className="hover:text-green-600">
+                              <NavLink
+                                 to={to}
+                                 onClick={close}
+                                 className="hover:text-green-600"
+                              >
                                  {name}
                               </NavLink>
                            </li>
