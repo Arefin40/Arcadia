@@ -6,6 +6,7 @@ import BookDetails from "@pages/BookDetails";
 import ListedBooks from "@pages/ListedBooks";
 import PagesToRead from "@pages/PagesToRead";
 import ReviewBlogs from "@pages/ReviewBlogs";
+import Contact from "@pages/Contact";
 
 const router = createBrowserRouter([
    {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             path: "/blogs",
             element: <ReviewBlogs />,
             loader: () => fetch("/blogs.json"),
+         },
+         {
+            path: "/contact",
+            element: <Contact />,
          },
       ],
    },
