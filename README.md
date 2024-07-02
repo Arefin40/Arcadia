@@ -1,1 +1,1 @@
-<h1 align="center">Book Review App</h1>
+<h1 align="center">Arcadia</h1>
